@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\StorePostRequest;
+use App\Http\Requests\Post\UpdatePostRequest;
 use App\Http\Resources\Post\PostResource;
 use App\Http\Resources\Post\ShowPostResource;
 use App\Models\Post;
@@ -57,13 +58,13 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StorePostRequest $request, string $id)
+    public function update(UpdatePostRequest $request, string $id)
     {
         $post = Post::findOrFail($id);
         return $post ? response()->json([
             'success' => true,
             'message' => 'Post updated successfully',
-            'data' => new PostResource(Post::store($request, $id))
+            'data' => new PostResource(Post::storeOrUpate($request, $id))
         ], 200) : response()->json([
             'success' => false,
             'message' => 'Something went wrong!',

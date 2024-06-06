@@ -18,7 +18,7 @@ class ShowPostResource extends JsonResource
             'id' => $this->id, 
             'title' => $this->title, 
             'body' => $this->body, 
-            'image' => $this->media->image,
+            'image' => 'http://localhost:8000/storage/images/'.$this->media->image,
             'author' => $this->user->name
         ];
     }

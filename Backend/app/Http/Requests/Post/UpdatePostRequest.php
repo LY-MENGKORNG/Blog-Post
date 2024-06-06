@@ -4,9 +4,8 @@ namespace App\Http\Requests\Post;
 
 use App\Http\Requests\DefaultRequest;
 
-class StorePostRequest extends DefaultRequest
+class UpdatePostRequest extends DefaultRequest
 {
-
     /**
      * Get the validation rules that apply to the request.
      *
